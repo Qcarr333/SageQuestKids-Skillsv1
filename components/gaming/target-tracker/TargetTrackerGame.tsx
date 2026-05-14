@@ -85,7 +85,11 @@ export function TargetTrackerGame() {
       rafRef.current = requestAnimationFrame(animate);
     };
     rafRef.current = requestAnimationFrame(animate);
-    return () => rafRef.current && cancelAnimationFrame(rafRef.current);
+    return () => {
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
   }, [cursor.x, cursor.y, reducedMotion, status, task]);
 
   const handleClickObject = async (id: string) => {

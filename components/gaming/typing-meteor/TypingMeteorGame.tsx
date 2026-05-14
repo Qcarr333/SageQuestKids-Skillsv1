@@ -77,7 +77,11 @@ export function TypingMeteorGame() {
       rafRef.current = requestAnimationFrame(tick);
     };
     rafRef.current = requestAnimationFrame(tick);
-    return () => rafRef.current && cancelAnimationFrame(rafRef.current);
+    return () => {
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
   }, [settings.spawnMs, spawnMeteor, status]);
 
   useEffect(() => {
