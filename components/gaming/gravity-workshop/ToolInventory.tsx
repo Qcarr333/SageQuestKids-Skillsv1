@@ -1,0 +1,2 @@
+import { ShapeType } from './types';
+export function ToolInventory({shapes}:{shapes:ShapeType[]}){return <section className='rounded-2xl bg-slate-900/70 p-3 ring-1 ring-sky-300/30'><p className='text-xs font-bold uppercase tracking-wide text-sky-200'>Tool Inventory</p><div className='mt-2 flex flex-wrap gap-2'>{shapes.map((s,i)=><button key={`${s}-${i}`} draggable onDragStart={(e)=>e.dataTransfer.setData('shape',s)} className='min-h-11 rounded-xl bg-slate-700 px-3 py-2 text-sm font-semibold text-white'>{s}</button>)}</div></section>}

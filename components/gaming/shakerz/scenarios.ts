@@ -1,0 +1,10 @@
+import { Scenario, ShakerzGrade } from './types';
+export const SCENARIOS: Record<ShakerzGrade, Scenario[]> = {
+  Kindergarten:[{grade_level:'Kindergarten',scenario_type:'campsite',educational_category:'letters',objective:'Click the letter A.',clickable_targets:[{label:'A',correct:true},{label:'B',correct:false},{label:'3',correct:false}],environment_reactions:['tent_wobble','campfire_flicker'],xp_value:8,difficulty:'easy'}],
+  '1st':[{grade_level:'1st',scenario_type:'park',educational_category:'vowels',objective:'Click all vowels.',clickable_targets:[{label:'A',correct:true},{label:'E',correct:true},{label:'T',correct:false}],environment_reactions:['bird_scatter'],xp_value:10,difficulty:'easy'}],
+  '2nd':[{grade_level:'2nd',scenario_type:'campsite',educational_category:'grammar',objective:'Click all nouns.',clickable_targets:[{label:'tent',correct:true},{label:'run',correct:false},{label:'dog',correct:true}],environment_reactions:['tent_wobble','map_drop'],xp_value:14,difficulty:'medium'}],
+  '3rd':[{grade_level:'3rd',scenario_type:'science_lab',educational_category:'math',objective:'Click all multiples of 5.',clickable_targets:[{label:'10',correct:true},{label:'12',correct:false},{label:'15',correct:true}],environment_reactions:['books_slide'],xp_value:18,difficulty:'medium'}],
+  '4th':[{grade_level:'4th',scenario_type:'observatory',educational_category:'fractions',objective:'Click equivalent fractions.',clickable_targets:[{label:'1/2',correct:true},{label:'0.5',correct:true},{label:'1/3',correct:false}],environment_reactions:['sign_tilt','robot_reacts'],xp_value:24,difficulty:'hard'}],
+  '5th':[{grade_level:'5th',scenario_type:'science_lab',educational_category:'logic_chain',objective:'Click variable → equation → answer.',clickable_targets:[{label:'x',correct:true},{label:'x+2=5',correct:true},{label:'3',correct:true},{label:'frog',correct:false}],environment_reactions:['books_slide','chair_tilt'],xp_value:30,difficulty:'hard'}],
+};
+export const getScenario=(grade:ShakerzGrade)=>{const pool=SCENARIOS[grade]; return pool[Math.floor(Math.random()*pool.length)];};
