@@ -1,0 +1,10 @@
+import { TrailEvent, TrailGrade } from './types';
+export const TRAIL_EVENTS: Record<TrailGrade, TrailEvent[]> = {
+  Kindergarten:[{grade_level:'Kindergarten',event_type:'vocabulary_prompt',environment:'forest',story_text:'You find a calm stream near tall trees.',prompt:'Type the word to keep going: WATER',valid_answers:['WATER'],optional_hint:'It helps plants grow.',xp_value:10,difficulty:'easy'}],
+  '1st':[{grade_level:'1st',event_type:'directional_choice',environment:'forest',story_text:'Two trails split. Sunlight shines brighter to the east.',prompt:'Type the direction to continue.',valid_answers:['EAST','GO EAST'],optional_hint:'Choose the right-side path.',xp_value:12,difficulty:'easy'}],
+  '2nd':[{grade_level:'2nd',event_type:'typing_command',environment:'cave',story_text:'A narrow gap blocks the cave route.',prompt:'Type: BUILD A BRIDGE',valid_answers:['BUILD A BRIDGE'],optional_hint:'Use the word BRIDGE.',xp_value:16,difficulty:'medium'}],
+  '3rd':[{grade_level:'3rd',event_type:'map_navigation',environment:'jungle',story_text:'Map clues show supplies near the river bend.',prompt:'Type the best action.',valid_answers:['FOLLOW THE RIVER SOUTH','FOLLOW RIVER SOUTH'],optional_hint:'Read the direction word carefully.',xp_value:20,difficulty:'medium'}],
+  '4th':[{grade_level:'4th',event_type:'comprehension_event',environment:'mountain',story_text:'The shortest pass has falling rocks. A longer path is stable and clear.',prompt:'Type the safest plan.',valid_answers:['TAKE THE LONGER PATH','USE THE SAFE ROUTE'],optional_hint:'Safety is more important than speed.',xp_value:26,difficulty:'hard'}],
+  '5th':[{grade_level:'5th',event_type:'comprehension_event',environment:'observatory',story_text:'The map marks a fast route through unstable terrain and a slower route with stronger clues.',prompt:'Type the best choice using evidence.',valid_answers:['USE THE SAFE ROUTE','TAKE THE LONGER PATH'],optional_hint:'Choose the route supported by safety clues.',xp_value:32,difficulty:'hard'}],
+};
+export function getTrailEvent(grade: TrailGrade){const list=TRAIL_EVENTS[grade]; return list[Math.floor(Math.random()*list.length)];}

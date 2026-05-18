@@ -1,0 +1,10 @@
+import { CipherGrade, CipherPuzzle } from './types';
+export const CIPHER_PUZZLES: Record<CipherGrade, CipherPuzzle[]> = {
+  Kindergarten:[{grade_level:'Kindergarten',puzzle_type:'symbol_match',story_text:'A sun rune glows in the explorer notebook.',encoded_text:'☀',clues:['The symbol means a weather word.'],valid_answers:['SUN'],optional_hint:'It shines in the sky.',xp_value:10,difficulty:'easy',environment:'ancient library'}],
+  '1st':[{grade_level:'1st',puzzle_type:'letter_substitution',story_text:'A simple note shows CAT shifted by +1.',encoded_text:'DBU',clues:['Move each letter back by one.'],valid_answers:['CAT'],optional_hint:'C comes before D.',xp_value:12,difficulty:'easy',environment:'explorer camp'}],
+  '2nd':[{grade_level:'2nd',puzzle_type:'word_scramble',story_text:'The clue tiles are mixed up.',encoded_text:'RIBDGE',clues:['Unscramble the letters.'],valid_answers:['BRIDGE'],optional_hint:'It helps cross water.',xp_value:15,difficulty:'medium',environment:'signal station'}],
+  '3rd':[{grade_level:'3rd',puzzle_type:'simple_shift_cipher',story_text:'A science clue is shifted by 1.',encoded_text:'TDBJODF',clues:['Shift each letter backward by one.'],valid_answers:['SCIENCE'],optional_hint:'It starts with S.',xp_value:18,difficulty:'medium',environment:'hidden laboratory'}],
+  '4th':[{grade_level:'4th',puzzle_type:'clue_chain',story_text:'Map note: VJG OCRC KU WPFGT VJG UVCT',encoded_text:'VJG OCRC KU WPFGT VJG UVCT',clues:['Shift each letter backward by 2.'],valid_answers:['THE MAP IS UNDER THE STAR'],optional_hint:'V becomes T.',xp_value:24,difficulty:'hard',environment:'observatory'}],
+  '5th':[{grade_level:'5th',puzzle_type:'clue_chain',story_text:'Research note: VJG TQEM KU WPFGT VJG YCVGT',encoded_text:'VJG TQEM KU WPFGT VJG YCVGT',clues:['Shift each letter backward by 2.'],valid_answers:['THE ROCK IS UNDER THE WATER'],optional_hint:'Try decoding one word first.',xp_value:30,difficulty:'hard',environment:'underwater archive'}],
+};
+export const getCipherPuzzle=(grade:CipherGrade)=>{const pool=CIPHER_PUZZLES[grade]; return pool[Math.floor(Math.random()*pool.length)];};
